@@ -1,0 +1,73 @@
+<div class="search-result">
+  <h1>{{description}}</h1>
+  <h4>Date: {{date}}</h4>
+  <h5>OCD-ID: {{ocdID}}</h5>
+  <div>
+    <span>
+      Registration Authority Level:<strong> {{voterRegistrationAuthorityLevel}}</strong>
+    </span><br />
+    <span>
+      Election Authority Level:<strong> {{electionAuthorityLevel}}</strong></span>
+  </div>
+  <div>
+    <hr />
+    {{#each voteMethods}}
+      <span><strong>Type: </strong>{{this.type}}</span><br />
+      {{#if this.primary}}
+        <span><strong>Instructions: </strong>{{this.instructions}}</span><br /><br />
+      {{else}}
+        {{#if this.ballotRequestDeadlineReceived}}
+          <span><strong>Ballot Request Deadline: </strong>{{this.ballotRequestDeadlineReceived}}</span><br />
+        {{/if}}
+        {{#if this.start}}
+          <span><strong>Start: </strong>{{this.start}}</span><br />
+        {{/if}}
+        {{#if this.end}}
+          <span><strong>End: </strong>{{this.end}}</span><br />
+        {{/if}}
+        {{#if this.acceptableForms}}
+
+        {{/if}}
+      {{/if}}
+      <span><strong>Excuse Required: </strong>{{#if this.excuseRequired}} Required {{else}} Not Required {{/if}}</span>
+      <hr />
+    {{/each}}
+  </div>
+  <div>
+    <h4>Voting Registration Methods</h4>
+    {{#each voteRegistrationMethods}}
+      <span><strong>Type: </strong>{{this.type}}</span><br />
+      {{#if this.registration}}
+        <span><strong>Registration: </strong>{{this.registration}}</span><br />
+      {{/if}}
+      {{#if this.signature}}
+        <span><strong>Signature: </strong>{{this.signature}}</span><br />
+      {{/if}}
+      {{#if this.idNumber}}
+        <span><strong>ID Number: </strong>{{this.idNumber}}</span><br />
+      {{/if}}
+      {{#if this.deadline}}
+        <span><strong>DeadLine Postmarked: </strong>{{this.deadline}}</span><br />
+      {{/if}}
+      {{#if this.url}}
+        <a href={{this.url}}>{{this.url}}</a>
+      {{/if}}
+      {{#if this.acceptableForms}}
+        <span><strong>Acceptable Forms: </strong>{{this.acceptableForms.name}}</span><br />
+      {{/if}} 
+      <hr /> 
+    {{/each}}
+  </div>
+  <h3>Type: {{type}}</h3>
+  <h3>ID: {{id}}</h3>
+  <div>
+    <h3>Source:</h3>
+    <span><strong>Type: </strong>{{source.type}}</span><br />
+    <strong>Notes: </strong><a href={{source.notes}}><span>{{source.notes}}</span><br /></a>
+    
+    <span><strong>Date: </strong>{{source.date}}</span>
+  </div>
+  <h3>Population: {{population}}</h3>
+  <div>Website: <a href={{website}}>{{website}}</a></div>
+  <div>Polling place url shortened: <a href={{pollingPlaceUrlShortened}}>{{pollingPlaceUrlShortened}}</a></div>
+</div>
