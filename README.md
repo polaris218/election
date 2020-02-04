@@ -3,7 +3,7 @@
 This is a server-side web application written in JavaScript with
 [Express][express] and [Handlebars][handlebars].
 
-    Before run project, you have to install `jet` cli [jet-cli][https://github.com/borkdude/jet]
+    Before run project, you have to install `jet` cli [https://github.com/borkdude/jet]
 ## Setup
 
     npm install
